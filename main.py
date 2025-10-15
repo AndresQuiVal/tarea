@@ -11,15 +11,14 @@ def obtener_numero(mensaje):
             print("Por favor, ingresa un número válido.")
 
 
+# Lambda
 
-def generar_numero_aleatorio(minimo, maximo):
-    """
-    Genera un número aleatorio entre un mínimo y un máximo.
-    """
-    return random.randint(minimo, maximo)
+generar_numero_aleatorio = lambda minimo, maximo: random.randint(minimo, maximo)
 
 
-def verificar_Intentos(intentos, numero_aleatorio):
+
+
+def verificar_intentos(intentos, numero_aleatorio):
     """
     Verifica si el usuario ha utilizado todos los intentos.
     """
@@ -45,14 +44,14 @@ def jugar():
         print("El límite inferior debe ser menor que el límite superior")
         return
 
-    numero_Secreto = generar_numero_aleatorio(limite_inferior, limite_superior)
+    numero_secreto = generar_numero_aleatorio(limite_inferior, limite_superior)
     intentos_maximos = obtener_numero("Ingresa el número de intentos máximos: ")
     intentos = 0
     
     while intentos < intentos_maximos:
         intento = obtener_numero("Ingresa tu intento: ")
         intentos += 1
-        if verificar_Intentos(intento, numero_Secreto):
+        if verificar_intentos(intento, numero_secreto):
             print("Has ganado")
             return
     
